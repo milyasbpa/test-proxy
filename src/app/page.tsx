@@ -11,7 +11,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
 
   const parentRef = React.useRef<HTMLDivElement | null>(null);
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
-  const canvasChildrenRef = React.useRef<HTMLCanvasElement | null>(null);
+  const imageChildrenRef = React.useRef<HTMLCanvasElement | null>(null);
 
   const imageRef = React.useRef<HTMLImageElement | null>(null);
   const [imageDimension, setImageDimension] = React.useState<{
@@ -54,6 +54,14 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
     }
   };
 
+  const handleClickCanvas = () => {
+    if (canvasRef.current !== null && imageChildrenRef.current !== null) {
+      let context = canvasRef.current.getContext("2d");
+      imageChildrenRef.current.width = canvasRef.current.width;
+      imageChildrenRef.current.height = canvasRef.current.height;
+    }
+  };
+
   React.useEffect(() => {
     if (!parentRef) return;
 
@@ -78,7 +86,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
   }, [parentRef]);
 
   // const imageURL = `${process.env.NEXT_PUBLIC_WEB_URL}/uvc/video`;
-  const imageURL = `http://localhost:8081/video`;
+  const imageURL = `http://localhost:8081/video?not-from-cache-please`;
   // const imageURL = "/sample-scan-rotate.png";
   return (
     <div
@@ -110,16 +118,15 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
               width: imageDimension.width,
               height: imageDimension.height,
             }}
+            crossOrigin="anonymous"
             onClick={handleClickCamera}
           />
 
           <canvas
             id={"resetCanvas"}
             ref={canvasRef}
-            // className={clsx("hidden")}
+            className={clsx("hidden")}
           ></canvas>
-
-          <canvas ref={canvasChildrenRef} className={clsx("hidden")}></canvas>
         </button>
       </div>
     </div>
