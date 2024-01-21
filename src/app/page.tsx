@@ -114,9 +114,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
           <video
             controls
             autoPlay
-            src={
-              "blob:http://localhost:8081/ae30ccdd-08a8-42cb-b28c-8e8b3f4abce"
-            }
+            src={"http://localhost:8081/live.flv"}
           ></video>
           {/* <img
             ref={imageRef}
