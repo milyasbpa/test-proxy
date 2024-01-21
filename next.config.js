@@ -6,10 +6,10 @@ const nextConfig = {
         source: `/nexus/:path*`,
         destination: `https://uat-vision.alvisual.xyz/:path*`,
       },
-      // {
-      //   source: `/uvc/:path*`,
-      //   destination: `http://localhost:8081/:path*`,
-      // },
+      {
+        source: `/uvc/:path*`,
+        destination: `http://localhost:8081/:path*`,
+      },
     ];
   },
 };

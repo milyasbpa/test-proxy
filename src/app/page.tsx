@@ -76,8 +76,8 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
     }
   }, [parentRef]);
 
-  // const imageURL = `${process.env.NEXT_PUBLIC_WEB_URL}/uvc/video`;
-  const imageURL = `http://localhost:8081/video`;
+  const imageURL = `${process.env.NEXT_PUBLIC_WEB_URL}/uvc/video`;
+  // const imageURL = `http://localhost:8081/video`;
   return (
     <div
       ref={parentRef}
