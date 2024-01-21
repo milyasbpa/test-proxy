@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import withPWAInit from "@ducanh2912/next-pwa";
+
 const nextConfig = {
   async rewrites() {
     return [
@@ -9,11 +11,12 @@ const nextConfig = {
     ];
   },
 };
-const withPWA = require("next-pwa")({
+const withPWA = withPWAInit({
   dest: "public",
   disable: process.env.NODE_ENV === "development",
   register: true,
-  skipWaiting: true,
+  // scope: "/app",
+  // sw: "service-worker.js",
+  //...
 });
-
 export default withPWA(nextConfig);
