@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-import withPWAInit from "@ducanh2912/next-pwa";
-
 const nextConfig = {
   async rewrites() {
     return [
@@ -11,12 +9,15 @@ const nextConfig = {
     ];
   },
 };
-const withPWA = withPWAInit({
+const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
+  cacheOnFrontEndNav: true,
+  aggressiveFrontEndNavCaching: true,
+  reloadOnOnline: true,
+  swcMinify: true,
   disable: process.env.NODE_ENV === "development",
-  register: true,
-  // scope: "/app",
-  // sw: "service-worker.js",
-  //...
+  workboxOptions: {
+    disableDevLogs: true,
+  },
 });
-export default withPWA(nextConfig);
+module.exports = withPWA(nextConfig);
