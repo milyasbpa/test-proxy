@@ -85,8 +85,8 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
     }
   }, [parentRef]);
 
-  // const imageURL = `${process.env.NEXT_PUBLIC_WEB_URL}/uvc/video`;
-  const imageURL = `http://localhost:8081/video?not-from-cache-please`;
+  const imageURL = `${process.env.NEXT_PUBLIC_WEB_URL}/uvc/video`;
+  // const imageURL = `http://localhost:8081/video?not-from-cache-please`;
   // const imageURL = "/sample-scan-rotate.png";
   return (
     <div
@@ -118,7 +118,6 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
               width: imageDimension.width,
               height: imageDimension.height,
             }}
-            crossOrigin="anonymous"
             onClick={handleClickCamera}
           />
 
