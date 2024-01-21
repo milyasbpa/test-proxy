@@ -55,24 +55,33 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
   };
 
   const handleClickCanvas = () => {
-    if (canvasRef.current !== null && canvasChildrenRef.current !== null) {
-      let context = canvasChildrenRef.current.getContext("2d");
-      canvasChildrenRef.current.width = canvasRef.current.width;
-      canvasChildrenRef.current.height = canvasRef.current.height;
-      if (context !== null) {
-        context?.drawImage(
-          canvasRef.current,
-          0,
-          0,
-          canvasChildrenRef.current.width,
-          canvasChildrenRef.current.height
-        );
+    // if (canvasRef.current !== null && canvasChildrenRef.current !== null) {
+    //   let context = canvasChildrenRef.current.getContext("2d");
+    //   canvasChildrenRef.current.width = canvasRef.current.width;
+    //   canvasChildrenRef.current.height = canvasRef.current.height;
+    //   if (context !== null) {
+    //     context?.drawImage(
+    //       canvasRef.current,
+    //       0,
+    //       0,
+    //       canvasChildrenRef.current.width,
+    //       canvasChildrenRef.current.height
+    //     );
 
-        const image = canvasChildrenRef.current.toDataURL("image/jpeg");
+    //     const image = canvasChildrenRef.current.toDataURL("image/jpeg");
 
-        console.log(image, "ini canvas");
-      }
+    //     console.log(image, "ini canvas");
+    //   }
+    // }
+    const canvasSave = document.getElementById("resetCanvas");
+    if (canvasSave != null) {
+      const d = (canvasSave as any).toDataURL("image/png");
+      console.log(d, "ini d");
+      // const w = window.open("about:blank", "image from canvas");
+      // window.document.write("<img src='" + d + "' alt='from canvas'/>");
     }
+
+    console.log("Saved!");
   };
 
   React.useEffect(() => {
@@ -135,7 +144,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
           />
 
           <canvas
-            id={canvasID}
+            id={"resetCanvas"}
             ref={canvasRef}
             // className={clsx("hidden")}
             onClick={handleClickCanvas}
