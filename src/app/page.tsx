@@ -110,7 +110,6 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
               width: imageDimension.width,
               height: imageDimension.height,
             }}
-            crossOrigin="anonymous"
             onClick={handleClickCamera}
           />
 
