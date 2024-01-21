@@ -8,7 +8,7 @@ const nextConfig = {
       },
       {
         source: `/uvc/:path*`,
-        destination: `http://localhost:8081/:path*`,
+        destination: `http://192.168.18.189:8081/:path*`,
       },
     ];
   },
