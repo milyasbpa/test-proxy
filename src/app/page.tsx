@@ -123,7 +123,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
           height: imageDimension.height,
         }}
       >
-        <button onClick={handleClickCamera}>
+        <button>
           <img
             ref={imageRef}
             src={imageURL}
@@ -131,12 +131,14 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
               width: imageDimension.width,
               height: imageDimension.height,
             }}
+            onClick={handleClickCamera}
           />
 
           <canvas
             id={canvasID}
             ref={canvasRef}
             // className={clsx("hidden")}
+            onClick={handleClickCanvas}
           ></canvas>
 
           <canvas ref={canvasChildrenRef} className={clsx("hidden")}></canvas>
