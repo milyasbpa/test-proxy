@@ -78,6 +78,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
 
   // const imageURL = `${process.env.NEXT_PUBLIC_WEB_URL}/uvc/video`;
   const imageURL = `http://localhost:8081/video`;
+  // const imageURL = "/sample-scan-rotate.png";
   return (
     <div
       ref={parentRef}
@@ -113,7 +114,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
           <canvas
             id={canvasID}
             ref={canvasRef}
-            className={clsx("hidden")}
+            // className={clsx("hidden")}
           ></canvas>
         </button>
       </div>
