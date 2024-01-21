@@ -11,6 +11,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
 
   const parentRef = React.useRef<HTMLDivElement | null>(null);
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
+  const canvasChildrenRef = React.useRef<HTMLCanvasElement | null>(null);
 
   const imageRef = React.useRef<HTMLImageElement | null>(null);
   const [imageDimension, setImageDimension] = React.useState<{
@@ -49,6 +50,27 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
         const image = canvasRef.current.toDataURL("image/jpeg");
 
         console.log(image, "ini image");
+      }
+    }
+  };
+
+  const handleClickCanvas = () => {
+    if (canvasRef.current !== null && canvasChildrenRef.current !== null) {
+      let context = canvasChildrenRef.current.getContext("2d");
+      canvasChildrenRef.current.width = canvasRef.current.width;
+      canvasChildrenRef.current.height = canvasRef.current.height;
+      if (context !== null) {
+        context?.drawImage(
+          canvasRef.current,
+          0,
+          0,
+          canvasChildrenRef.current.width,
+          canvasChildrenRef.current.height
+        );
+
+        const image = canvasChildrenRef.current.toDataURL("image/jpeg");
+
+        console.log(image, "ini canvas");
       }
     }
   };
@@ -116,6 +138,8 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
             ref={canvasRef}
             // className={clsx("hidden")}
           ></canvas>
+
+          <canvas ref={canvasChildrenRef} className={clsx("hidden")}></canvas>
         </button>
       </div>
     </div>
