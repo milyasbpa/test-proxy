@@ -111,12 +111,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
         }}
       >
         <button>
-          <video
-            controls
-            autoPlay
-            src={"http://localhost:8081/live.flv"}
-          ></video>
-          {/* <img
+          <img
             ref={imageRef}
             src={imageURL}
             style={{
@@ -130,7 +125,7 @@ export default function AndroidUSBMicroscopeCameraCompulsoryScan() {
             id={"resetCanvas"}
             ref={canvasRef}
             className={clsx("hidden")}
-          ></canvas> */}
+          ></canvas>
         </button>
       </div>
     </div>
